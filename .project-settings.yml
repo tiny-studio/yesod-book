@@ -1,6 +1,7 @@
 module-template: ! 'module MODULE_NAME where
 
 '
+
 extensions:
   TemplateHaskell: true
   OverloadedStrings: true
