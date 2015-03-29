@@ -2,11 +2,13 @@
 {-# LANGUAGE QuasiQuotes           #-}
 {-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TypeFamilies          #-}
+import           Yesod
 import Yesod
 
 data HelloWorld = HelloWorld
+
 mkYesod "HelloWorld" [parseRoutes|
-/ HomeR GET
+  / HomeR GET
 |]
 
 instance Yesod HelloWorld
@@ -14,5 +16,4 @@ instance Yesod HelloWorld
 getHomeR :: Handler Html
 getHomeR = defaultLayout [whamlet|Hello World!|]
 
-main :: IO()
-main = warp 3000 HelloWorld
+main = warpEnv HelloWorld
